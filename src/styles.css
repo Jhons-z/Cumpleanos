@@ -1,1 +1,318 @@
-/* You can add global styles to this file, and also import other style files */
+/* Variables de color para el tema festivo */
+:root {
+    --color-primario: #d81b60;
+    --color-secundario: #ff9f43;
+    --color-acento: #4facfe;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #a1c4fd 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
+}
+
+h1,
+h2,
+h3,
+.fuente-festiva {
+    font-family: 'Fredoka', sans-serif;
+}
+
+/* Animación de icono principal flotante */
+.icono-principal {
+    font-size: 4.5rem;
+    color: var(--color-primario);
+    display: inline-block;
+    animation: flotar 3s ease-in-out infinite;
+    filter: drop-shadow(0 5px 10px rgba(216, 27, 96, 0.3));
+}
+
+@keyframes flotar {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(5deg);
+    }
+}
+
+/* Fondo decorativo de globos */
+.decoracion-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.globo {
+    position: absolute;
+    bottom: -100px;
+    font-size: 3rem;
+    opacity: 0.45;
+    animation: subir 12s linear infinite;
+}
+
+.globo:nth-child(1) {
+    left: 8%;
+    animation-duration: 9s;
+    animation-delay: 0s;
+    color: #d81b60;
+    font-size: 3.2rem;
+}
+
+.globo:nth-child(2) {
+    left: 82%;
+    animation-duration: 13s;
+    animation-delay: 2s;
+    color: #4facfe;
+    font-size: 4rem;
+}
+
+.globo:nth-child(3) {
+    left: 28%;
+    animation-duration: 10s;
+    animation-delay: 4s;
+    color: #ff9f43;
+    font-size: 2.5rem;
+}
+
+.globo:nth-child(4) {
+    left: 65%;
+    animation-duration: 14s;
+    animation-delay: 1s;
+    color: #1dd1a1;
+    font-size: 3.5rem;
+}
+
+.globo:nth-child(5) {
+    left: 48%;
+    animation-duration: 11s;
+    animation-delay: 5s;
+    color: #ff6b6b;
+    font-size: 2.8rem;
+}
+
+.globo:nth-child(6) {
+    left: 18%;
+    animation-duration: 15s;
+    animation-delay: 3s;
+    color: #a55eea;
+    font-size: 3.8rem;
+}
+
+@keyframes subir {
+    0% {
+        transform: translateY(15vh) rotate(-10deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.45;
+    }
+
+    85% {
+        opacity: 0.45;
+    }
+
+    100% {
+        transform: translateY(-120vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+/* Contenedor de cintas / serpentinas dinámicas */
+#contenedorCintas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.cinta-serpentina {
+    position: absolute;
+    top: -60px;
+    width: 10px;
+    height: 45px;
+    border-radius: 4px;
+    opacity: 0.9;
+    animation: caerCinta linear forwards;
+}
+
+@keyframes caerCinta {
+    0% {
+        transform: translateY(-50px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotateX(720deg) rotateY(360deg) rotateZ(540deg);
+        opacity: 0.2;
+    }
+}
+
+/* Tarjeta principal estilo Glassmorphism */
+.tarjeta-principal {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 28px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* Estilo de texto con gradiente */
+.titulo-gradiente {
+    background: linear-gradient(45deg, #d81b60, #ff6b6b, #ff9f43);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+/* Caja de cita destacada */
+.caja-dedicatoria {
+    background: linear-gradient(to right, rgba(255, 240, 245, 0.9), rgba(255, 248, 231, 0.9));
+    border-left: 5px solid var(--color-primario);
+    border-radius: 16px;
+}
+
+/* Botones interactivos */
+.btn-celebrar {
+    background: linear-gradient(45deg, #d81b60, #ff6b6b);
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 14px 28px;
+    box-shadow: 0 8px 20px rgba(216, 27, 96, 0.35);
+    transition: all 0.25s ease;
+}
+
+.btn-celebrar:hover,
+.btn-celebrar:active {
+    transform: scale(1.04);
+    color: white;
+    box-shadow: 0 10px 25px rgba(216, 27, 96, 0.5);
+}
+
+.btn-sorpresa {
+    background: linear-gradient(45deg, #ff9f43, #feca57);
+    border: none;
+    color: #2d3436;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 12px 24px;
+    box-shadow: 0 8px 20px rgba(255, 159, 67, 0.35);
+    transition: all 0.25s ease;
+}
+
+.btn-sorpresa:hover,
+.btn-sorpresa:active {
+    transform: scale(1.04);
+    color: #2d3436;
+}
+
+/* Vela interactiva */
+.vela-contenedor {
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease;
+}
+
+.vela-contenedor:active {
+    transform: scale(0.95);
+}
+
+/* Overlay de la Rosa y Corazones */
+#overlayRosa {
+    position: fixed;
+    inset: 0;
+    background: rgba(25, 5, 15, 0.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#overlayRosa.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.rosa-gigante {
+    font-size: 8.5rem;
+    filter: drop-shadow(0 0 35px rgba(255, 40, 100, 0.9));
+    transform: scale(0);
+    transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 2;
+    user-select: none;
+}
+
+#overlayRosa.activo .rosa-gigante {
+    transform: scale(1);
+    animation: latidoRosa 2s ease-in-out infinite 0.7s;
+}
+
+@keyframes latidoRosa {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.14) rotate(4deg);
+    }
+}
+
+.corazon-flotante {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    z-index: 1;
+    user-select: none;
+    animation: expandirCorazon ease-out forwards;
+}
+
+@keyframes expandirCorazon {
+    0% {
+        transform: translate(-50%, -50%) scale(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0.95;
+    }
+
+    100% {
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(var(--escala)) rotate(var(--rot));
+        opacity: 0;
+    }
+}
