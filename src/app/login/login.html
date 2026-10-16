@@ -1,0 +1,45 @@
+<div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+    <!-- Diseño simulando un Modal centrado -->
+    <div class="card shadow-lg rounded-4 border-0" style="width: 100%; max-width: 400px;">
+        <div class="card-header border-0 bg-danger text-white rounded-top-4 text-center py-3">
+            <h3 class="mb-0 fw-bold" style="font-family: 'Fredoka', sans-serif;">
+                <i class="bi bi-person-circle me-2"></i> Iniciar Sesión
+            </h3>
+        </div>
+
+        <div class="card-body p-4 bg-light rounded-bottom-4">
+            <form [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
+
+                <!-- Campo "Correo" que funciona como Usuario -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-secondary">Correo</label>
+                    <input type="text" formControlName="correo" class="form-control form-control-lg rounded-3"
+                        placeholder="Ingresa tu correo">
+                </div>
+
+                <!-- Campo Contraseña -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold text-secondary">Contraseña</label>
+                    <input type="password" formControlName="password" class="form-control form-control-lg rounded-3"
+                        placeholder="*********">
+
+                    <!-- Mensajes de validación de Angular -->
+                    <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('pattern')"
+                        class="text-danger small mt-1">
+                        <i class="bi bi-exclamation-circle"></i> La contraseña debe iniciar con una letra mayúscula.
+                    </div>
+                </div>
+
+                <!-- Alerta de error de base de datos -->
+                <div *ngIf="errorLogin" class="alert alert-danger py-2 small">
+                    Credenciales incorrectas. Intenta de nuevo.
+                </div>
+
+                <button type="submit" class="btn w-100 text-white fw-bold py-3 rounded-pill shadow-sm"
+                    style="background: linear-gradient(45deg, #4facfe, #00f2fe);">
+                    Celebrar <i class="bi bi-arrow-right ms-1"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+name = "cumpleanos"
+pages_build_output_dir = "dist/Cumpleanos2026/browser" # Verifica que sea tu ruta
+
+[[d1_databases]]
+binding = "DB" # Así lo llamaremos en el código
+database_name = "dbcumpleanos"
+database_id = "159bb406-ec51-4332-87b6-c9a67b6ccbe2"
